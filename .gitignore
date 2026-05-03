@@ -1,10 +1,12 @@
 # Dataset files (Do not commit to GitHub!)
-data/*.csv
-data/*.zip
+data/**/*.csv
+data/**/*.zip
+data/**/*.txt
 
 # Spark and Model Outputs
 ml_pipeline/models/
 ml_pipeline/logs/
+ml_pipeline/training_log.txt
 *.parquet
 *.bin
 *.pkl
