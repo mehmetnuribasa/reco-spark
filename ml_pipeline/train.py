@@ -201,9 +201,9 @@ def train_als_with_tuning(train, test):
     # ── Hyperparameter Grid ──
     param_grid = (
         ParamGridBuilder()
-        .addGrid(als.rank, [10, 50, 100])
-        .addGrid(als.regParam, [0.01, 0.1, 1.0])
-        .addGrid(als.maxIter, [5, 10, 20])
+        .addGrid(als.rank, [10, 50])
+        .addGrid(als.regParam, [0.01, 0.1])
+        .addGrid(als.maxIter, [5, 10])
         .build()
     )
 
@@ -223,7 +223,7 @@ def train_als_with_tuning(train, test):
         estimatorParamMaps=param_grid,
         evaluator=evaluator,
         numFolds=3,
-        parallelism=2,  # Parallel model training
+        parallelism=1,  # Sequential model training to prevent OOM
         seed=42,
     )
 
