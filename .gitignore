@@ -1,0 +1,26 @@
+# Dataset files (Do not commit to GitHub!)
+data/*.csv
+data/*.zip
+
+# Spark and Model Outputs
+ml_pipeline/models/
+ml_pipeline/logs/
+*.parquet
+*.bin
+*.pkl
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Frontend (React etc.)
+frontend/node_modules/
+frontend/build/
+.env
+
+# Operating System
+.DS_Store
+Thumbs.db

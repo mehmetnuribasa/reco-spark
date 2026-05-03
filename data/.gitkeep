@@ -1,0 +1,2 @@
+This folder will house the MovieLens 25M dataset. This file was created so that Git can track the directory.
+You can extract the dataset into this directory as "ratings.csv" and "movies.csv".
