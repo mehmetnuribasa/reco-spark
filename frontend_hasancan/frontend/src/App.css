@@ -1,0 +1,163 @@
+/* ── Layout ───────────────────────────────────────── */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── Ambient background glows ─────────────────────── */
+.app__glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(130px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.1;
+  animation: glow-drift 12s ease-in-out infinite alternate;
+}
+
+.app__glow--purple {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, #7c3aed, transparent 70%);
+  top: -250px;
+  left: -200px;
+  animation-duration: 14s;
+}
+
+.app__glow--cyan {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #06b6d4, transparent 70%);
+  bottom: -150px;
+  right: -150px;
+  animation-direction: alternate-reverse;
+  animation-duration: 10s;
+}
+
+@keyframes glow-drift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(30px, 20px) scale(1.06); }
+}
+
+/* ── Main ─────────────────────────────────────────── */
+.app__main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  padding: 0 1rem 5rem;
+}
+
+.app__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Error banner ─────────────────────────────────── */
+.app__error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.28);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.1rem;
+  margin-top: 1.25rem;
+  color: var(--error);
+  animation: slide-down 0.28s ease;
+}
+
+.app__error p {
+  flex: 1;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.app__error-close {
+  background: none;
+  border: none;
+  color: rgba(248, 113, 113, 0.6);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.1rem;
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.app__error-close:hover { color: var(--error); }
+
+/* ── Movie grid ───────────────────────────────────── */
+.app__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+  gap: 1.35rem;
+  margin-top: 1.35rem;
+  animation: fade-up 0.4s ease;
+}
+
+.app__grid--list {
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+}
+
+/* ── Filter empty state ───────────────────────────── */
+.app__filter-empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  padding: 2.5rem 1rem;
+}
+
+/* ── Footer ───────────────────────────────────────── */
+.app__footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2.25rem 1rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.app__footer-brand {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-secondary);
+}
+
+.app__footer-sub,
+.app__footer-stack {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ── Animations ───────────────────────────────────── */
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 640px) {
+  .app__main { padding: 0 0.75rem 4rem; }
+
+  .app__grid {
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .app__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

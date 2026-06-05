@@ -1,0 +1,150 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 20, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Brand */
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+}
+
+.header__logo {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--purple-600), var(--cyan-500));
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #fff;
+  box-shadow: 0 0 24px rgba(124, 58, 237, 0.45);
+  flex-shrink: 0;
+}
+
+.header__title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  background: linear-gradient(135deg, var(--purple-300) 0%, var(--cyan-400) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header__subtitle {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 1px;
+  white-space: nowrap;
+}
+
+/* Nav tech badges */
+.header__nav {
+  display: flex;
+  gap: 0.4rem;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.header__tech-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Status */
+.header__status {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.38rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.header__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status--ok {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.22);
+  color: #10b981;
+}
+.status--ok .header__dot {
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+.status--degraded {
+  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.22);
+  color: var(--warning);
+}
+.status--degraded .header__dot {
+  background: var(--warning);
+  animation: dot-pulse 1s ease-in-out infinite;
+}
+
+.status--error {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.22);
+  color: var(--error);
+}
+.status--error .header__dot { background: var(--error); }
+
+.status--checking {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+.status--checking .header__dot {
+  background: var(--text-muted);
+  animation: dot-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+@media (max-width: 640px) {
+  .header__nav     { display: none; }
+  .header__subtitle { display: none; }
+  .header__title   { font-size: 1.15rem; }
+}

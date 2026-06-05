@@ -1,0 +1,142 @@
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1.2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-top: 1.75rem;
+  animation: slide-in 0.3s ease;
+  flex-wrap: wrap;
+}
+
+.stats__info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.stats__badge {
+  background: linear-gradient(135deg, var(--purple-600), var(--cyan-500));
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.18rem 0.65rem;
+  border-radius: var(--radius-full);
+  min-width: 30px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+}
+
+.stats__text {
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+}
+
+.stats__text strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.stats__avg { color: var(--text-secondary); }
+
+.stats__avg-val {
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+/* ── Right-side actions ─────────────────────────── */
+.stats__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+/* View toggle */
+.stats__view-toggle {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.stats__view-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.28rem 0.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition), background var(--transition);
+  font-family: inherit;
+}
+
+.stats__view-btn:hover { color: var(--text-secondary); }
+
+.stats__view-btn--active {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--purple-400);
+}
+
+/* CSS grid icon (2x2 squares) */
+.view-icon {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  width: 14px;
+  height: 14px;
+}
+
+.view-icon span {
+  background: currentColor;
+  border-radius: 1px;
+}
+
+/* CSS list icon (3 horizontal bars) */
+.view-icon--list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  width: 14px;
+  height: 14px;
+}
+
+.view-icon--list span {
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+/* Clear button */
+.stats__clear {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.28rem 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color var(--transition), border-color var(--transition),
+              background var(--transition);
+  font-family: inherit;
+}
+
+.stats__clear:hover {
+  color: var(--error);
+  border-color: rgba(248, 113, 113, 0.35);
+  background: rgba(248, 113, 113, 0.06);
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
