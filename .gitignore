@@ -17,11 +17,11 @@ venv/
 env/
 
 # Frontend (React etc.)
-frontend/node_modules/
-frontend/build/
+frontend/frontend/node_modules/
+frontend/frontend/build/
 
-frontend_hasancan/frontend/node_modules/
-frontend_hasancan/frontend/build/
+# frontend_hasancan/frontend/node_modules/
+# frontend_hasancan/frontend/build/
 .env
 
 # Operating System
